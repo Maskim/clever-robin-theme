@@ -6,9 +6,9 @@
   "scripts": {
     "clean": "npm-run-all clean:*",
     "clean:dist": "rimraf dist",
-    "start": "webpack --progress --env.dev",
-    "build": "webpack --progress --env.build",
-    "build:prod": "webpack -p --env.prod",
+    "start": "webpack --progress --env=dev",
+    "build": "webpack --progress --env=build",
+    "build:prod": "webpack --env=prod",
     "debug": "webpack -d --display-error-details --env.dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -63,6 +63,7 @@
     "stylelint-webpack-plugin": "^0.7.0",
     "waypoints": "^4.0.1",
     "webpack": "^3.0.0",
+    "webpack-merge": "^4.1.0",
     "webpack-svgstore-plugin": "^4.0.1"
   }
 }

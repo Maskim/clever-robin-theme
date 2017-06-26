@@ -3,9 +3,7 @@ import  './fonts/robin_theme_fonts';
 import './scss/main.scss';
 
 /* SVG */
-import svgXHR from './svg/svgxhr';
-
-let __svg__ = { path: './svg/**/*.svg', name: 'svg/main.svg' };
+import svgXHR from './js/svgxhr';
 
 // require basic or custom sprite loader
-svgXHR(__svg__);
+svgXHR({ path: './app/svg/**/*.svg', name: 'svg/main.svg' });

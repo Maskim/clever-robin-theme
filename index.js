@@ -1,10 +1,8 @@
 import  './app/fonts/robin_theme_fonts';
-import './app/scss/main.scss';
+import './dist/css/main.css';
 
 /* SVG */
-import svgXHR from './app/svg/svgxhr';
-
-let __svg__ = { path: './svg/**/*.svg', name: 'svg/main.svg' };
+import svgXHR from './app/js/svgxhr';
 
 // require basic or custom sprite loader
-svgXHR(__svg__);
+svgXHR({ path: './svg/**/*.svg', name: 'svg/main.svg' });

@@ -1,0 +1,8 @@
+<div class="access-bar_link access-bar_link-{% block accessBarLinkClass %}{% if link is defined %}{{ link.classname }}{% endif %}{% endblock %}">
+    <a href="{% block accessBarLinkUrl %}{% if url %}{{ url }}{% else %}#{% endif %}{% endblock %}" {% block accessBarAttributes %}{% endblock %}>
+        <svg>
+            <use xlink:href="#{% block svg %}{% if link is defined %}{{ link.svg }}{% endif %}{% endblock %}"></use>
+        </svg>
+        <span>{% block accessBarLinkName %}{% if text %}{{ text }}{% else %}{{ link.text }}{% endif %}{% endblock %}</span>
+    </a>
+</div>

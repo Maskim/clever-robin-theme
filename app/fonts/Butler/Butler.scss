@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Butler';
+  src: url('./Butler-UltraLight.eot');
+  src: url('./Butler-UltraLight.woff2') format('woff2'),
+  url('./Butler-UltraLight.woff') format('woff'),
+  url('./Butler-UltraLight.eot?#iefix') format('embedded-opentype'),
+  url('./Butler-UltraLight.svg#ButlerUltraLight') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('./Butler-Light.eot');
+  src: url('./Butler-Light.woff2') format('woff2'),
+    url('./Butler-Light.woff') format('woff'),
+    url('./Butler-Light.eot?#iefix') format('embedded-opentype'),
+    url('./Butler-Light.svg#ButlerLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('./Butler.eot');
+  src: url('./Butler.woff2') format('woff2'),
+    url('./Butler.woff') format('woff'),
+    url('./Butler.eot?#iefix') format('embedded-opentype'),
+    url('./Butler.svg#Butler') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('./Butler-Medium.eot');
+  src: url('./Butler-Medium.woff2') format('woff2'),
+    url('./Butler-Medium.woff') format('woff'),
+    url('./Butler-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./Butler-Medium.svg#ButlerMedium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('./Butler-Bold.eot');
+  src: url('./Butler-Bold.woff2') format('woff2'),
+    url('./Butler-Bold.woff') format('woff'),
+    url('./Butler-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./Butler-Bold.svg#ButlerBold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('./Butler-ExtraBold.eot');
+  src: url('./Butler-ExtraBold.woff2') format('woff2'),
+    url('./Butler-ExtraBold.woff') format('woff'),
+    url('./Butler-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('./Butler-ExtraBold.svg#ButlerExtraBold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('./Butler-Black.eot');
+  src: url('./Butler-Black.woff2') format('woff2'),
+    url('./Butler-Black.woff') format('woff'),
+    url('./Butler-Black.eot?#iefix') format('embedded-opentype'),
+    url('./Butler-Black.svg#ButlerBlack') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}

@@ -1,0 +1,18 @@
+<button class="{{ modifier_class }}">
+    <svg>
+        <use xlink:href="#icon-conseiller"></use>
+    </svg>
+    <span>Button{% if modifier_class %}.{{ modifier_class }}{% endif %}</span>
+</button>
+<a class="btn {{ modifier_class }}">
+    <svg>
+        <use xlink:href="#icon-conseiller"></use>
+    </svg>
+    <span>a.btn{% if modifier_class %}.{{ modifier_class }}{% endif %}</span>
+</a>
+<a class="button {{ modifier_class }}">
+    <svg>
+        <use xlink:href="#icon-conseiller"></use>
+    </svg>
+    <span>a.button{% if modifier_class %}.{{ modifier_class }}{% endif %}</span>
+</a>

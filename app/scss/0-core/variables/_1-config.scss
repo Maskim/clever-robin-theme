@@ -1,0 +1,14 @@
+// Font-size de base
+$base-font-size: 16px !default;
+$base-line-height: $base-font-size * 1.5 !default;
+
+// # Unité préférée pour les calculs
+// `em`, `rem`, `pt` ou `px`.
+// (`pt` et `px` n’ont ici qu’un intêret très limité.)
+$prefered-unit: 'em' !default;
+
+// box-sizing sur les blocs ?
+$box-sizing: true !default;
+
+//Le lien des images
+$url-folder: '/bundles/';

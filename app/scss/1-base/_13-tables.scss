@@ -1,0 +1,50 @@
+/*
+Tables
+
+Markup: ../../../components/tables/tables.html.twig
+
+Style guide: components.tables
+*/
+table {
+  border-bottom: 1px solid $table-border;
+  border-collapse: collapse;
+  width: 100%;
+
+  @include paragraph;
+}
+
+tr,
+td {
+  padding: em($base-line-height / 2) em($grid-padding / 2);
+}
+
+td {
+  border-top: 1px solid $table-border;
+}
+
+thead {
+  th {
+    background: $theme-secondary;
+    color: $white;
+    font-weight: 700;
+  }
+
+  td {
+    border-top: 0;
+  }
+}
+
+tbody {
+  td {
+    font-size: em($text-small-fs);
+    color: $title-color;
+
+    &:nth-child(even) {
+      background: $table-event-bg;
+    }
+
+    &:nth-child(odd) {
+      color: $theme-primary-dark;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+/* stylelint-disable declaration-no-important */
+// # Rétablissement du flux
+// http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+  zoom: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// # _Reset_ (et sa version surchargée)
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent; // pour les boutons
+  list-style-type: none; // pour les listes
+}
+
+@mixin reset-i {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background-color: transparent !important; // pour les boutons
+  list-style-type: none !important; // pour les listes
+}
+
+@mixin reset-text() {
+  // We deliberately do NOT reset font-size.
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.5;
+  text-align: left; // Fallback for where `start` is not supported
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+// # Contenu masqué visuellement (et sa version surchargée)
+
+// https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+@mixin visually-hidden {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px  1px  1px  1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0.001;
+}
+
+@mixin visually-hidden-i {
+  position: absolute !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  clip: rect(1px  1px  1px  1px) !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  opacity: 0.001 !important;
+}
+
+// Et la possibilité de le ré-afficher (et sa version surchargée)
+@mixin visually-visible {
+  position: static;
+  height: auto;
+  width: auto;
+  clip: auto;
+  overflow: visible;
+  opacity: 1;
+}
+
+@mixin visually-visible-i {
+  position: static !important;
+  height: auto !important;
+  width: auto !important;
+  clip: auto !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+}
+
+// # Survol des liens
+// Pas de soulignement par défaut, puis soulignement au survol ou au focus.
+@mixin deco-roll {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+// Ou soulignement par défaut, puis pas de soulignement au survol ou au focus.
+@mixin deco-unroll {
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+// # Étirement des blocs
+@mixin stretch($smash-length: 0) {
+  position: absolute;
+  left: $smash-length;
+  top: $smash-length;
+  bottom: $smash-length;
+  right: $smash-length;
+
+  // Avec une option pour positionner une image centrée quelque soit ça taille.
+  @if strip-unit($smash-length) <= -999 {
+    margin: auto;
+  }
+}
+
+@mixin paragraph ($modulo: 1, $font-size: $base-font-size) {
+  margin-bottom: em($base-line-height * $modulo, $font-size);
+}
+
+@mixin background-image-retina($filename, $extension: 'png', $need-width-height: false) {
+  background-image: url($url-folder + $filename + "." + $extension);
+  background-repeat: no-repeat;
+
+  /* stylelint-disable */
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+    // on retina, use image that's scaled by 2
+    background-image: url($url-folder + $filename + "@2x." + $extension);
+    background-size: image-width($filename + "." + $extension) image-height($filename + "." + $extension);
+  }
+  /* stylelint-enable */
+
+  .no-backgroundsize & {
+    background-image: url($url-folder + $filename + "." + $extension);
+  }
+
+  @if ($need-width-height) {
+    width: image-width($filename + "." + $extension);
+    height: image-height($filename + "." + $extension);
+  }
+}
+
+@mixin no-js() {
+  html:not(.no-js) {
+    @content;
+  }
+}
+/* stylelint-enable */

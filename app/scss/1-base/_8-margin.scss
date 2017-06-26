@@ -1,0 +1,19 @@
+/*
+Margins
+
+.no-margin
+.margin-half
+
+Markup: ../../../components/margins/margins.html.twig
+
+Style guide: components.margins
+*/
+.no-margin,
+p.no-margin {
+  margin-bottom: 0;
+}
+
+.margin-half,
+p.margin-half {
+  @include paragraph(0.5);
+}

@@ -1,0 +1,16 @@
+<div
+    {% if attributes %}
+        {{ attributes.addClass('alert') }}
+    {% else %}
+        class="{{ classes }} {{ modifier_class }}"
+    {% endif %}
+    >
+    <div class="alert_image">
+        <svg>
+            <use xlink:href="#icon-conseiller"></use>
+        </svg>
+    </div>
+    <div class="alert_content">
+        {{ text }}
+    </div>
+</div>

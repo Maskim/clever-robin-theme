@@ -1,0 +1,50 @@
+/*
+Alerts
+
+.alert-beta     - Alert in yellow
+.alert-grey     - Alert in grey
+
+Markup: ../../../components/alerts/alerts.twig
+
+Style guide: components.alerts
+*/
+.alert {
+  display: flex;
+  background: $theme-primary;
+  color: $white;
+  border-radius: 0 4px 4px 0;
+
+  &_image {
+    min-width: em(85px);
+    background: $theme-primary-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: em(30px);
+      height: em(30px);
+    }
+  }
+
+  &_content {
+    padding: em($base-line-height) em($grid-padding);
+  }
+
+  &-beta {
+    background: $theme-secondary;
+
+    .alert_image {
+      background: $theme-secondary-dark;
+    }
+  }
+
+  &-grey {
+    background: $alert-grey;
+    color: $alert-grey-text;
+
+    .alert_image {
+      background: $alert-grey-dark;
+    }
+  }
+}

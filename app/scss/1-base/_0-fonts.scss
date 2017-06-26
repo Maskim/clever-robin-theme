@@ -1,0 +1,36 @@
+/*
+Fonts
+
+.din                      - Font Family DIN Regular
+.din-medium               - Font Family DIN Medium
+.din-bold                 - Font Family DIN Bold
+.din-black                - Font Family DIN Black
+.din-alternate-light      - Font Family DIN Alternate Light
+.din-alternate            - Font Family DIN Alternate Regular
+.din-alternate-medium     - Font Family DIN Alternate Medium
+.din-alternate-bold       - Font Family DIN Alternate Bold
+.din-alternate-black      - Font Family DIN Alternate Black
+.butler-ultra-light       - Font Family Butler Ultra Light
+.butler-light             - Font Family Butler Light
+.butler                   - Font Family Butler Regular
+.butler-medium            - Font Family Butler Medium
+.butler-bold              - Font Family Butler Bold
+.butler-extra-bold        - Font Family Butler Extra Bold
+.butler-black             - Font Family Butler Black
+
+Markup: ../../../components/fonts/fonts.html.twig
+
+Style guide: global.fonts
+*/
+
+@mixin butler() {
+  font-family: Butler, "Times New Roman", Arial, sans-serif;
+}
+
+@mixin din() {
+  font-family: DIN-Alternate, Helvetica, Arial, sans-serif;
+}
+
+@mixin din-alternate() {
+  font-family: DIN-Alternate, Helvetica, Arial, sans-serif;
+}

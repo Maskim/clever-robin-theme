@@ -1,0 +1,74 @@
+/*
+Lists
+
+Markup: ../../../components/lists/lists.html.twig
+
+Style guide: components.lists
+*/
+ul,
+ol,
+dl {
+  list-style: none;
+  margin-bottom: em($base-line-height);
+  padding: 0;
+
+  li {
+    position: relative;
+  }
+
+  ul,
+  ol,
+  dl {
+    padding-top: em($base-line-height / 2);
+    margin-bottom: 0;
+  }
+}
+
+li {
+  position: relative;
+  padding-bottom: em($base-line-height / 2);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  @include mq($from: tablet) {
+    padding-left: rem(40px);
+  }
+
+  @include mq($until: tablet) {
+    padding-left: rem(30px);
+  }
+}
+
+ul {
+  li {
+    &::before {
+      content: "-";
+    }
+  }
+}
+
+ol {
+  counter-reset: section;
+
+  li {
+    &::before {
+      counter-increment: section;
+      content: counters(section, ".") ")";
+      display: inline-block;
+      text-align: center;
+      box-sizing: border-box;
+
+      @include mq($from: tablet) {
+        width: rem(40px);
+        margin-left: rem(-40px);
+      }
+
+      @include mq($until: tablet) {
+        width: rem(30px);
+        margin-left: rem(-30px);
+      }
+    }
+  }
+}

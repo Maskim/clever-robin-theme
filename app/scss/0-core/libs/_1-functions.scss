@@ -1,0 +1,170 @@
+/* # Suppresion de l’unité
+
+- `$smash-number` : variable (avec ou sans unité) passée en paramètre ;
+- `@return` : variable sans unité retournée.
+*/
+
+@function strip-unit($smash-number) {
+  @return $smash-number / ($smash-number * 0 + 1);
+}
+
+/* # Conversion de pixels en ems
+
+- `$smash-px` : variable en pixels passée en paramètre ;
+- `$smash-contexte` : contexte de travail en pixels (par défaut égal à la taille de texte du projet) ;
+- `@return` : équivalence en `ems` retournée.
+*/
+
+@function em($smash-px, $smash-contexte: $base-font-size) {
+  @return(strip-unit($smash-px) / strip-unit($smash-contexte) * 1em);
+}
+
+/* # Conversion de pixels en rems */
+
+/*
+ - `$smash-px` : variable en pixels passée en paramètre ;
+ - `$smash-bfs` : contexte de travail égal à la taille de texte du navigateur par défaut ;
+ - Pour les navigateurs modernes. `@return` : équivalence en `rems` retournée.
+ - Pour IE 8 et inférieurs. `@return` : équivalence en pixels retournée.
+*/
+
+@function rem($smash-px) {
+  @if $is-rem {
+    @return(strip-unit($smash-px) / strip-unit($base-font-size) * 1rem);
+  }
+
+  @else {
+    @return(strip-unit($smash-px) * 1px);
+  }
+}
+
+// Convertir de pixels en pourcentages
+
+/*
+ - `$smash-px` : variable en pixels passée en paramètre ;
+ - `$smash-contexte` : contexte de travail en pixels (par défaut égal à la largeur du conteneur principal) ;
+ - `@return` : équivalence en pourcentage retournée.
+*/
+
+@function pourcent($smash-px, $smash-contexte) {
+  @return(strip-unit($smash-px) * 100 / strip-unit($smash-contexte) * 1%);
+}
+
+/* # Calcul de taille dans l’unité de son choix */
+
+/*
+ - `$smash-px` : variable en pixels passée en paramètre ;
+ - `$smash-contexte` : contexte de travail en pixels (par défaut égal à la taille de texte du projet) ;
+ - `$smash-unit` : unité choisie (par défaut égale à l’unité préférée du projet) ;
+*/
+
+/*
+ - Retourne une taille en `em`, en `rem`, en `pt`, en `%` ou en `px` en fonction de `$smash-unit`.
+*/
+
+@function size($smash-px, $smash-unit: $prefered-unit, $smash-contexte: $base-font-size) {
+  @if $smash-unit == 'em' {
+    @return em($smash-px, $smash-contexte);
+  }
+
+  @elseif $smash-unit == 'rem' {
+    @return rem($smash-px);
+  }
+
+  @else {
+    @return $smash-px;
+  }
+}
+
+/*
+ * # Calculer la largeur en pixels d’un certain nombre de colonnes
+ * Cette largeur inclut les gouttières comprises entre les colonnes.
+ *
+ - `$smash-col-nb` : nombre de colonnes passée en paramètre (par défaut égal à 1) ;
+ - `$smash-col` : largeur en pixels d’une colonne ;
+ - `$smash-gutter` : largeur en pixels d’une gouttière ;
+ - `@return` : taille en pixels retournée.
+*/
+
+@function grid-cols-width($smash-col-nb: 1) {
+  @return ($col * $smash-col-nb) + ($gutter * ($smash-col-nb - 1));
+}
+
+/*
+  # Calculer la largeur en pourcentage d’une colonne
+    Avec pour objectif de pour pouvoir en afficher un nombre donné.
+*/
+
+/*
+ - `$smash-col-nb` : nombre de colonnes à afficher passé en paramètre (par défaut égal à 1) ;
+ - `$smash-context` : dans le cadre d’imbrication de colonnes, on peut préciser le nombre de colonnes de l’imbrication supérieure (par défaut à 1) ;
+ - `$smash-gutter` : largeur en pixels d’une gouttière ;
+ - `$smash-gutter-pourcent` : largeur en pourcentage d’une gouttière ;
+ - `$smash-gutter-nb` : nombre de gouttières ;
+ - `@return` : taille en pourcentage retournée.
+*/
+@function grid-col-width($smash-col-nb: 1, $smash-context: 1, $smash-gutter-pourcent: pourcent($gutter)) {
+  $smash-gutter-nb: $smash-col-nb - 1;
+
+  @return (100% - (strip-unit($smash-gutter-pourcent) * $smash-gutter-nb * $smash-context)) / $smash-col-nb;
+}
+
+/* # Calculer le nombre de lignes nécessaires
+
+ - `$smash-font-size` : taille du texte en pixels passée en paramètre ;
+ - `$smash-line-height` : hauteur de ligne ;
+ - `$smash-gap` : gap minimum entre la hauteur de ligne et la taille de texte : s’il n’est pas respecté, le nombre de ligne se voit augmenté de 0.5 ;
+ - `@return` : nombre de lignes nécessaires pour afficher.
+*/
+
+@function lines($font-size: $base-font-size, $line-height: $base-line-height) {
+  $lines: ceil(2 * $font-size / $line-height) / 2;
+  $gap: 2px;
+
+  @if ($lines * $line-height - $font-size) < $gap {
+    $smash-lines: $lines + 0.5;
+  }
+
+  @return $lines;
+}
+
+/* # Fournir une taille issue de l’échelle typographique
+
+ - `$smash-level` : niveau demandé sur l’échelle typographique (passé en paramètre) (par défaut égal à 0) ;
+ - `$smash-amplitude` : la taille des échelles avant d’être fusionnées ;
+ - `$smash-scale1` : la première échelle typographique ;
+ - `$smash-scale` : les échelles fusionnées ;
+ - `$smash-start` : le barreau inital ;
+ - `$smash-offset` : le decalage initial sur les échelles ;
+ - `@return` : une taille en pixels.
+*/
+
+@function smash-scale($smash-level: 0) {
+  $smash-start: nth($smash-scale1, $smash-amplitude + 1);
+
+  @return nth($smash-scale, index($smash-scale, $smash-start) + $smash-level + $smash-offset);
+}
+
+/* # Éclaircir une couleur
+  http://codepen.io/KatieK2/pen/tejhz/
+
+ - `$smash-color` : couleur à transformer ;
+ - `$smash-precentage` : poucentage d’éclaircissement ;
+ - `@return` : une couleur plus claire.
+*/
+
+@function smash-lighten($smash-color, $smash-percentage) {
+  @return mix($smash-color, $white, $smash-percentage);
+}
+
+/* # Assombrir une couleur
+    http://codepen.io/KatieK2/pen/tejhz/
+
+ - `$smash-color` : couleur à transformer ;
+ - `$smash-precentage` : poucentage d’assombrissement ;
+ - `@return` : une couleur plus foncée.
+*/
+
+@function smash-darken($smash-color, $smash-percentage) {
+  @return mix($smash-color, $black, $smash-percentage);
+}

@@ -1,0 +1,44 @@
+/*
+Forms
+
+Markup: ../../../components/forms/forms.html.twig
+
+Style guide: components.forms
+*/
+form {
+  @include paragraph;
+}
+
+/*
+Inputs
+
+text      - Input type Text
+password  - Iput type Password
+date      - Input type date
+search    - Input type search
+number    - Input type number
+
+Markup: ../../../components/forms/inputs.html.twig
+
+Style guide: components.forms.inputs
+*/
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="search"],
+input[type="number"] {
+  font-size: em($base-font-size);
+  width: 100%;
+}
+
+/*
+Textarea
+
+Markup: ../../../components/forms/textarea.html.twig
+
+Style guide: components.forms.textarea
+*/
+textarea {
+  font-size: em($base-font-size);
+  width: 100%;
+}

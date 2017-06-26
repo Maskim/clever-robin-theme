@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'DIN';
+  src: url('./DIN.eot');
+  src: url('./DIN.woff2') format('woff2'),
+    url('./DIN.woff') format('woff'),
+    url('./DIN.eot?#iefix') format('embedded-opentype'),
+    url('./DIN.svg#DIN') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('./DIN-Medium.eot');
+  src: url('./DIN-Medium.woff2') format('woff2'),
+    url('./DIN-Medium.woff') format('woff'),
+    url('./DIN-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./DIN-Medium.svg#DINMedium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('./DIN-Bold.eot');
+  src: url('./DIN-Bold.woff2') format('woff2'),
+    url('./DIN-Bold.woff') format('woff'),
+    url('./DIN-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./DIN-Bold.svg#DINBold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('./DIN-Black.eot');
+  src: url('./DIN-Black.woff2') format('woff2'),
+    url('./DIN-Black.woff') format('woff'),
+    url('./DIN-Black.eot?#iefix') format('embedded-opentype'),
+    url('./DIN-Black.svg#DINBlack') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+

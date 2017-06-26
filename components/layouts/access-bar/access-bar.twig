@@ -1,0 +1,28 @@
+<div
+        {% if attributes %}
+            {{ attributes.addClass('access-bar') }}
+        {% else %}
+            class="{{ classes }}"
+        {% endif %}
+>
+    <div class="container">
+        <div class="row access-bar_inner">
+            {% if content %}
+                {% block content %}
+                    {{ content }}
+                {% endblock %}
+            {% else %}
+                {% for link in links %}
+                    <div class="access-bar_link">
+                        <a href="#" class="access-bar_{{ link.classname }}">
+                            <svg>
+                                <use xlink:href="#{{ link.svg }}"></use>
+                            </svg>
+                            <span>{{ link.name }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>

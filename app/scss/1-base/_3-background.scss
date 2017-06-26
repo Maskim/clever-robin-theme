@@ -1,0 +1,20 @@
+/*
+Background
+
+.background-theme-primary    - The primary color
+.background-theme-secondary  - The secondary color
+
+Markup: ../../../components/background/background.html.twig
+
+Style guide: global.background
+*/
+.background,
+.b {
+  &-theme-primary {
+    background: $theme-primary;
+  }
+
+  &-theme-secondary {
+    background: $theme-secondary;
+  }
+}

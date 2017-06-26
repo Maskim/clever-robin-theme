@@ -1,0 +1,68 @@
+@mixin styleguideFont($class, $font, $weight: "normal", $style: "normal") {
+  .styleguide-font.#{$class} {
+    #result-header-1-dd {
+      font: normal 30px/1em $font, serif;
+      font-weight: $weight;
+      font-style: $style;
+    }
+
+    #result-header-2-dd {
+      font: normal 24px/1em $font, serif;
+      font-weight: $weight;
+      font-style: $style;
+    }
+
+    #result-header-3-dd {
+      font: normal 18px/1em $font, serif;
+      font-weight: $weight;
+      font-style: $style;
+    }
+
+    #result-header-4-dd {
+      font: normal 18px/1em $font, serif;
+      font-weight: $weight;
+      font-style: $style;
+    }
+
+    #result-header-5-dd {
+      font: normal 14px/1em $font, serif;
+      font-weight: $weight;
+      font-style: $style;
+    }
+
+    #result-header-6-dd {
+      font: normal 12px/1em $font, serif;
+      font-weight: $weight;
+      font-style: $style;
+    }
+
+    #result-body-dd {
+      font: normal 16px/1em $font, serif;
+      font-weight: $weight;
+      font-style: $style;
+    }
+  }
+}
+
+.styleguide-font {
+  th {
+    font-weight: 400;
+  }
+}
+
+@include styleguideFont(din, DIN);
+@include styleguideFont(din-medium, DIN, 500);
+@include styleguideFont(din-bold, DIN, 700);
+@include styleguideFont(din-black, DIN, 900);
+@include styleguideFont(din-alternate-light, DIN-Alternate, 300);
+@include styleguideFont(din-alternate-regular, DIN-Alternate);
+@include styleguideFont(din-alternate-medium, DIN-Alternate, 500);
+@include styleguideFont(din-alternate-bold, DIN-Alternate, 700);
+@include styleguideFont(din-alternate-black, DIN-Alternate, 900);
+@include styleguideFont(butler, Butler);
+@include styleguideFont(butler-light, Butler, 300);
+@include styleguideFont(butler-ultra-light, Butler, 100);
+@include styleguideFont(butler-medium, Butler, 500);
+@include styleguideFont(butler-bold, Butler, 700);
+@include styleguideFont(butler-extra-bold, Butler, 800);
+@include styleguideFont(butler-black, Butler, 900);

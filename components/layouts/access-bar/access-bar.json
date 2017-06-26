@@ -1,0 +1,31 @@
+{
+  "classes": "access-bar",
+  "body": "<p>Access Bar</p>",
+  "links": {
+    "0": {
+      "svg": "icon-phone",
+      "name": "05 57 57 43 25",
+      "classname": "phone"
+    },
+    "1": {
+      "svg": "icon-conseiller",
+      "name": "Être rappelé par un conseiller",
+      "classname": "callback"
+    },
+    "2": {
+      "svg": "icon-ask",
+      "name": "Première visite ?",
+      "classname": "first-visit"
+    },
+    "3": {
+      "svg": "icon-lock",
+      "name": "Votre compte",
+      "classname": "account"
+    },
+    "4": {
+      "svg": "icon-cart",
+      "name": "Panier",
+      "classname": "cart"
+    }
+  }
+}

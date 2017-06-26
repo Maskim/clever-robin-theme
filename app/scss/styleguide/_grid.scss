@@ -1,0 +1,26 @@
+.styleguide_container,
+.styleguide_row {
+  border: 1px solid $color--light-gray;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.styleguide_col {
+  border: 1px solid $color--light-gray;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.styleguide_label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $color--light-gray;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.kss-nav__menu-item {
+  padding-left: 0;
+}

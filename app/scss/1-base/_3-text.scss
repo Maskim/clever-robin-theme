@@ -1,0 +1,70 @@
+/*
+Text
+
+.text-small       - Use small font size
+.text-big         - Use big font-size
+.text-extra-big   - Use extra big font-size
+.text-uppercase   - Put text in uppercase
+.text-left        - Align text on left
+.text-center      - Align text on center
+.text-right       - Align text on right
+.text-din         - Use Din Font Family
+.text-butler      - Use Butler Font Family
+
+Markup: ../../../components/text/text.html.twig
+
+Style guide: components.text
+ */
+.text {
+  &-small {
+    font-size: em($text-small-fs);
+  }
+
+  &-big {
+    font-size: em($text-big-fs);
+  }
+
+  &-extra-big {
+    font-size: em($text-extra-big-fs);
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-right {
+    text-align: right;
+  }
+
+  &-din {
+    @include din;
+  }
+
+  &-butler {
+    @include butler;
+  }
+}
+
+p {
+  &.text {
+    &-small {
+      @include paragraph(1, $text-small-fs);
+    }
+
+    &-big {
+      @include paragraph(1, $text-big-fs);
+    }
+
+    &-extra-big {
+      @include paragraph(1, $text-extra-big-fs);
+    }
+  }
+}

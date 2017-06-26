@@ -1,0 +1,9 @@
+<div class="container styleguide_container">
+    <label class="styleguide_label">div.container</label>
+    <div class="{% if modifier_class %}{{ modifier_class }}{% else %}row{% endif %} styleguide_row">
+        <label class="styleguide_label">div.{% if modifier_class %}{{ modifier_class }}{% else %}row{% endif %}</label>
+        {% for i in 1..6 %}
+            <div class="col-xs-2">.col-xs-2</div>
+        {% endfor %}
+    </div>
+</div>

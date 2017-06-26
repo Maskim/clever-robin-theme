@@ -1,0 +1,112 @@
+/*
+Access Bar
+
+Markup: ../../../components/layouts/access-bar/access-bar.twig
+
+Style guide: layout.access-bar
+*/
+
+.access-bar {
+  background: $theme-primary;
+  color: $white;
+
+  a {
+    font-size: em($text-small-fs);
+    color: $white;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 500;
+
+    @include din-alternate;
+
+    svg {
+      width: rem(14px);
+      height: rem(14px);
+      margin-right: rem($grid-padding / 2);
+    }
+
+    &:hover,
+    &:focus {
+      color: $theme-secondary;
+      text-decoration: none;
+    }
+  }
+
+  &_inner {
+    height: em($access-bar-height);
+  }
+
+  &_link {
+    display: flex;
+
+    &-phone,
+    &-callback,
+    &-first-visit,
+    &-account,
+    &-cart {
+      display: flex;
+      align-items: stretch;
+
+      a {
+        padding-right: em($grid-gutter-width);
+      }
+    }
+
+    &-phone,
+    &-callback,
+    &-first-visit {
+      svg {
+        color: $theme-secondary;
+      }
+    }
+
+    &-phone,
+    &-callback,
+    &-account {
+      border-right: 1px solid $access-bar-border;
+    }
+
+    &-callback,
+    &-first-visit,
+    &-cart {
+      a {
+        padding-left: em($grid-gutter-width);
+      }
+    }
+
+    &-first-visit {
+      flex-grow: 1;
+    }
+
+    &-cart {
+      .number {
+        display: inline-block;
+        color: $white;
+        position: relative;
+        font-weight: 700;
+        margin-left: rem(10px);
+
+        span {
+          position: relative;
+          z-index: 2;
+        }
+
+        @include din;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: rem(19px);
+          height: rem(19px);
+          background: $theme-secondary;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

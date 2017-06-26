@@ -1,0 +1,35 @@
+/*
+Links
+
+.link          - class .link
+.link:hover    - Hover status for .links
+
+Markup: ../../../components/links/robin_links.html.twig
+
+Style guide: components.links
+*/
+
+a {
+  text-decoration: underline;
+  transition: all 0.3s;
+  color: $theme-primary;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.link {
+  &-roll {
+    @include deco-roll;
+  }
+
+  &-unroll {
+    @include deco-unroll;
+  }
+}

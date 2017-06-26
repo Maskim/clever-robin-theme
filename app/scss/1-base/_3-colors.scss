@@ -1,0 +1,20 @@
+/*
+Colors
+
+.color-theme-primary    - The primary color
+.color-theme-secondary  - The secondary color
+
+Markup: ../../../components/colors/colors.html.twig
+
+Style guide: global.colors
+*/
+.color,
+.c {
+  &-theme-primary {
+    color: $theme-primary;
+  }
+
+  &-theme-secondary {
+    color: $theme-secondary;
+  }
+}

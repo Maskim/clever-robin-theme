@@ -8,4 +8,4 @@ import './scss/styleguide.scss';
 import svgXHR from './js/svgxhr';
 
 // require basic or custom sprite loader
-svgXHR({ path: './svg/**/*.svg', name: 'svg/main.svg' });
+svgXHR({ path: './svg/*.svg', name: 'svg/main.svg' });

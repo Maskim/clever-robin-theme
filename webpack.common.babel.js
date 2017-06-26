@@ -4,7 +4,6 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import postcssReporter from 'postcss-reporter';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
-import KssWebpackPlugin from 'kss-webpack-plugin';
 import SvgStore from 'webpack-svgstore-plugin';
 
 const supportedBrowsers = [
@@ -20,14 +19,6 @@ const scssProcessors = [
     postcssReporter({ clearReportedMessages: true }),
 ];
 
-const KssConfig = {
-    source: 'app/scss',
-    title: 'Robin Theme Style Guide',
-    css: ['../dist/css/main.css', '../dist/css/styleguide.css'],
-    js: ['../dist/js/styleguide.js'],
-    builder: 'builder/twig',
-};
-
 const MODULE_APP_DIR = path.resolve(__dirname, 'app');
 const MODULE_BUILD_DIR = path.resolve(__dirname, 'dist');
 
@@ -39,8 +30,8 @@ module.exports = {
     context: MODULE_APP_DIR,
 
     entry: {
-        styleguide: './styleguide.js',
-        main: './app.js'
+        main: './main.js',
+        styleguide: './styleguide.js'
     },
 
     output: {
@@ -122,7 +113,7 @@ module.exports = {
 
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
-                exclude: /node_modules/,
+                exclude: MODULE_APP_DIR + '/svg',
                 use: [{
                     loader: "file-loader?name=fonts/[name].[ext]"
                 }],
@@ -144,15 +135,13 @@ module.exports = {
             quiet: true,
         }),
 
-        new KssWebpackPlugin(KssConfig),
-
-        new SvgStore({
+        new SvgStore.Options({
             svgoOptions: {
                 plugins: [
                     {
                         removeTitle: true
                     }
-                ]
+                ],
             }
         }),
     ],
